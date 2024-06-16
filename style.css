@@ -1,0 +1,118 @@
+@import url("https://fonts.cdnfonts.com/css/poppins");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(45deg,#4070f4,#ff0000);
+}
+
+.nav {
+  position: fixed;
+  top: 10%;
+  height: 20px;
+  width: 250px;
+  z-index: 100;
+}
+
+.nav .btn {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #4070f4;
+  padding: 5px 20px;
+}
+.nav .btn::before {
+  margin-right: 10px;
+  content: 'Menu';
+}
+
+.nav.active .btn::before {
+  content: 'Close';
+}
+
+.nav .btn span {
+  position: relative;
+  height: 50px;
+  width: 20px;
+}
+
+.nav .btn span::before,
+.nav .btn span::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #4070f4;
+  top: 20px;
+  left: 0;
+  transition: 0.5s;
+}
+
+.nav.active .btn span::before {
+  transform: rotate(225deg);
+  top: 24px;
+}
+
+
+.nav .btn span::after {
+  bottom: 20px;
+  top: unset;
+}
+
+
+.nav.active .btn span::after {
+  transform: rotate(135deg);
+  bottom: 24px;
+}
+
+.nav ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav ul li {
+  position: relative;
+  list-style: none;
+  transform: translateX(-250px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.nav.nav.active ul li {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
+
+.nav ul li a {
+  position: relative;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  height: 50px;
+  background: #fff;
+  color: #222;
+  transition: 0.5s;
+}
+.nav ul li a:hover {
+  color: #f00;
+  background: #f1f1f1;
+}
